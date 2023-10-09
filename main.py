@@ -21,9 +21,9 @@ class Apple:
         pygame.display.flip()
 
     def move(self):
-        self.x = random.randint(1, 30) * SIZE
-        self.y = random.randint(1, 18) * SIZE
-        # size of surface divided by size of one block head minus 2
+        self.x = random.randint(1, 31) * SIZE
+        self.y = random.randint(1, 19) * SIZE
+        # Second value input for randint = size of surface divided by size of one block head minus 1 (rounded)
 
 
 class Snake:
@@ -142,7 +142,9 @@ class Game:
             f"Game over! Your score was: {self.snake.length}", True, (200, 200, 200)
         )
         self.surface.blit(gameover, (200, 300))
-        retry = font.render("To play again, press Enter", True, (200, 200, 200))
+        retry = font.render(
+            "To play again, press Enter. Press Esc to exit.", True, (200, 200, 200)
+        )
         self.surface.blit(retry, (200, 350))
         pygame.display.flip()
 
@@ -193,5 +195,3 @@ class Game:
 if __name__ == "__main__":
     game = Game()
     game.run()
-
-    # pygame.display.flip()
